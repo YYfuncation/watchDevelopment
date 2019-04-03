@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <button width="1" alignment="left" title="后台唤醒操作" id="qGM-h5-IXp">
+                            <connections>
+                                <segue destination="h9v-pj-pTq" kind="push" id="dnF-mk-Wmd"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="获取步数和心跳" id="J30-jP-lNU">
+                            <connections>
+                                <segue destination="hBo-lI-Dh2" kind="push" id="2VY-zy-elH"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-220" y="327"/>
+        </scene>
+        <!--Watch Connectivity Interface Controller-->
+        <scene sceneID="9GH-u0-D2L">
+            <objects>
+                <controller id="h9v-pj-pTq" customClass="watchConnectivityInterfaceController">
+                    <items>
+                        <button width="1" alignment="left" title="发送消息" id="kkk-yl-T11">
+                            <connections>
+                                <action selector="clickTo" destination="h9v-pj-pTq" id="PBg-Q8-CwT"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-289" y="751"/>
+        </scene>
+        <!--Step And Heart Rate Interface Controller-->
+        <scene sceneID="abf-yt-RkO">
+            <objects>
+                <controller id="hBo-lI-Dh2" customClass="stepAndHeartRateInterfaceController">
+                    <items>
+                        <button width="1" alignment="left" title="步数" id="vPK-Fs-d9d">
+                            <connections>
+                                <action selector="getSteps" destination="hBo-lI-Dh2" id="aUv-3E-hZq"/>
+                            </connections>
+                        </button>
+                        <label alignment="left" text="Label" id="Scg-Dg-JpB"/>
+                        <button width="1" alignment="left" title="心跳" id="7aM-FF-YiT">
+                            <connections>
+                                <action selector="getHeartRate" destination="hBo-lI-Dh2" id="lWQ-J7-is0"/>
+                            </connections>
+                        </button>
+                        <label alignment="left" text="Label" id="7kh-bJ-UyC"/>
+                    </items>
+                    <connections>
+                        <outlet property="heartBtn" destination="7aM-FF-YiT" id="NQ6-Jf-Kg1"/>
+                        <outlet property="rateLabel" destination="7kh-bJ-UyC" id="akO-Xh-HFN"/>
+                        <outlet property="stepLabel" destination="Scg-Dg-JpB" id="wvr-5Y-zRp"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-40" y="751"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="161" y="484"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+    </scenes>
+</document>
